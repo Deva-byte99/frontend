@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent a Farming Vehicle</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin-top: 50px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .btn-primary {
+            width: 100%;
+        }
+        .vehicle-img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            display: none;
+        }
+    </style>
+    <script>
+        function selectVehicle() {
+            var vehicleType = document.getElementById("vehicle").value;
+            var vehicleImage = document.getElementById("vehicleImage");
+            var ownerPhone = document.getElementById("ownerPhone");
+            
+            if(vehicleType) {
+                vehicleImage.src = vehicleType.toLowerCase() + ".jpg";
+                vehicleImage.style.display = "block";
+                ownerPhone.textContent = "Owner Contact: +91-XXXXXXXXXX";
+                ownerPhone.style.display = "block";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">Rent a Farming Vehicle</h2>
+        
+        <div class="mb-3">
+            <label for="location" class="form-label">Delivery Location</label>
+            <input type="text" class="form-control" id="location" name="location" required>
+        </div>
+        
+        <div class="mb-3">
+            <label for="vehicle" class="form-label">Select Vehicle Type</label>
+            <select class="form-select" id="vehicle" onchange="selectVehicle()">
+                <option value="">--Select a Vehicle--</option>
+                <option value="Tractor">Tractor</option>
+                <option value="Harvester">Harvester</option>
+                <option value="Plow">Plow</option>
+                <option value="Seeder">Seeder</option>
+                <option value="Sprayer">Sprayer</option>
+            </select>
+        </div>
+        
+        <div class="mb-3 text-center">
+            <img id="vehicleImage" class="vehicle-img" alt="Vehicle Image">
+            <p id="ownerPhone" class="mt-2" style="display: none; font-weight: bold;"></p>
+        </div>
+        
+        <button type="button" class="btn btn-primary">Rent Now</button>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
